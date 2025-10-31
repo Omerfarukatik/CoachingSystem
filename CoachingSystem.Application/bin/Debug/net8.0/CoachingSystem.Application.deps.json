@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "CoachingSystem.Application/1.0.0": {
+        "dependencies": {
+          "CoachingSystem.Domain": "1.0.0"
+        },
+        "runtime": {
+          "CoachingSystem.Application.dll": {}
+        }
+      },
+      "CoachingSystem.Domain/1.0.0": {
+        "runtime": {
+          "CoachingSystem.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CoachingSystem.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CoachingSystem.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

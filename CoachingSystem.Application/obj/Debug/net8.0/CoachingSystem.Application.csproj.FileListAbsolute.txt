@@ -1,0 +1,16 @@
+C:\Users\faruk\CoachingSystem\CoachingSystem.Application\bin\Debug\net8.0\CoachingSystem.Application.deps.json
+C:\Users\faruk\CoachingSystem\CoachingSystem.Application\bin\Debug\net8.0\CoachingSystem.Application.dll
+C:\Users\faruk\CoachingSystem\CoachingSystem.Application\bin\Debug\net8.0\CoachingSystem.Application.pdb
+C:\Users\faruk\CoachingSystem\CoachingSystem.Application\bin\Debug\net8.0\CoachingSystem.Domain.dll
+C:\Users\faruk\CoachingSystem\CoachingSystem.Application\bin\Debug\net8.0\CoachingSystem.Domain.pdb
+C:\Users\faruk\CoachingSystem\CoachingSystem.Application\obj\Debug\net8.0\CoachingSystem.Application.csproj.AssemblyReference.cache
+C:\Users\faruk\CoachingSystem\CoachingSystem.Application\obj\Debug\net8.0\CoachingSystem.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\faruk\CoachingSystem\CoachingSystem.Application\obj\Debug\net8.0\CoachingSystem.Application.AssemblyInfoInputs.cache
+C:\Users\faruk\CoachingSystem\CoachingSystem.Application\obj\Debug\net8.0\CoachingSystem.Application.AssemblyInfo.cs
+C:\Users\faruk\CoachingSystem\CoachingSystem.Application\obj\Debug\net8.0\CoachingSystem.Application.csproj.CoreCompileInputs.cache
+C:\Users\faruk\CoachingSystem\CoachingSystem.Application\obj\Debug\net8.0\Coaching.5D51B1CC.Up2Date
+C:\Users\faruk\CoachingSystem\CoachingSystem.Application\obj\Debug\net8.0\CoachingSystem.Application.dll
+C:\Users\faruk\CoachingSystem\CoachingSystem.Application\obj\Debug\net8.0\refint\CoachingSystem.Application.dll
+C:\Users\faruk\CoachingSystem\CoachingSystem.Application\obj\Debug\net8.0\CoachingSystem.Application.pdb
+C:\Users\faruk\CoachingSystem\CoachingSystem.Application\obj\Debug\net8.0\ref\CoachingSystem.Application.dll
+C:\Users\faruk\CoachingSystem\CoachingSystem.Application\obj\Debug\net8.0\CoachingSystem.Application.sourcelink.json
