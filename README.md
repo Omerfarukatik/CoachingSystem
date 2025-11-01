@@ -1,37 +1,27 @@
-🚀 CoachingSystem API | Koçluk ve Danışmanlık Yönetim Sistemi
+# 🚀 CoachingSystem API | Geliştirici Kurulum Kılavuzu
 
-Bu proje, Koçluk ve Danışmanlık sistemleri için oluşturulmuş modern bir ASP.NET Core Web API projesidir. Proje, Katmanlı Mimari (Clean Architecture prensipleri), JWT Tabanlı Kimlik Doğrulama (Authentication) ve Rol Tabanlı Yetkilendirme (Authorization) kullanılarak geliştirilmiştir.
+Bu kılavuz, **CoachingSystem API** projesini yerel ortamınızda **PostgreSQL** veritabanı ile sıfırdan kurmak ve **JWT tabanlı Yetkilendirme (Authorization)** mekanizmasını test etmek için gerekli tüm teknik adımları içerir.
 
-🎯 Proje Durumu (Güncel)
+---
 
-Kimlik Doğrulama (Login/Register): ✅ Tamamlandı.
+## 🧩 I. ÖN KOŞULLAR
 
-Yetkilendirme (Authorization): ✅ Tamamlandı (Coach, Client, Admin rolleri kısıtlı).
+Projeyi çalıştırmadan önce aşağıdaki yazılımların kurulu olduğundan emin olun:
 
-Veritabanı: PostgreSQL (Entity Framework Core ile) kullanılmaktadır.
+| Yazılım | Açıklama |
+|----------|-----------|
+| [.NET 8 SDK](https://dotnet.microsoft.com/en-us/download) | Projenin temel çalışma çerçevesi |
+| [PostgreSQL](https://www.postgresql.org/download/) | Veri depolama sunucusu *(lokalde çalışmalıdır)* |
+| [Postman](https://www.postman.com/downloads/) / Swagger UI | API uç noktalarını test etmek için |
 
-Ana Tablolar: Users ve Sessions tabloları mevcuttur.
+---
 
-🛠️ 1. Gerekli Ön Koşullar
+## ⚙️ II. KURULUM (SIFIRDAN)
 
-Projeyi bilgisayarınızda çalıştırmadan önce aşağıdaki yazılımların kurulu olduğundan emin olun:
+### 🔸 1. appsettings.json Düzenlemesi
+`CoachingSystem.API/appsettings.json` dosyasını açın ve PostgreSQL bilgilerinizi ekleyin:
 
-.NET 8 SDK: Projenin çalıştığı ana çerçeve.
-
-PostgreSQL Veritabanı: Verilerin saklandığı veritabanı sunucusu.
-
-pgAdmin (veya DBeaver): Veritabanını yönetmek için görsel bir araç (isteğe bağlı ama önerilir).
-
-Postman veya Swagger UI: API uç noktalarını test etmek için.
-
-⚙️ 2. Kurulum Adımları
-
-Bu adımlar, projeyi ilk defa indirip çalıştırmak için gereklidir.
-
-2.1 Veritabanı Ayarları (appsettings.json)
-
-CoachingSystem.API klasöründeki appsettings.json dosyasını açın. ConnectionStrings ve Jwt (JWT Anahtarı) bölümlerini kendi PostgreSQL ayarlarınızla güncelleyin.
-
+```json
 {
   "ConnectionStrings": {
     "DefaultConnection": "Host=localhost;Port=5432;Database=CoachingSystemDb;Username=postgres;Password=sifreniz"
@@ -42,155 +32,107 @@ CoachingSystem.API klasöründeki appsettings.json dosyasını açın. Connectio
     "Audience": "CoachingSystemApp"
   }
 }
+```
+> 🔐 Şifre kısmını kendi PostgreSQL bilgilerinize göre değiştirin.  
+> `Jwt:Key` değeri **en az 32 karakter** olmalıdır.
 
+---
 
-2.2 Veritabanını Oluşturma ve Güncelleme
+### 🔸 2. Veritabanı Yapısını Oluşturma
 
-Projenizin ana klasöründe (CoachingSystem dizini) terminali açın ve veritabanını oluşturmak/güncellemek için aşağıdaki komutları sırayla çalıştırın:
+Proje dizininde terminal açın:
 
-# 1. Var olan tüm veritabanı şemasını siler ve yeniden oluşturur (İlk çalıştırma için idealdir)
-dotnet ef database drop --startup-project CoachingSystem.API 
+```bash
+# Veritabanını sıfırla
+dotnet ef database drop --startup-project CoachingSystem.API --force
 
-# 2. Tüm tabloları ve UserRole Enum'ını (Session tablosu dahil) oluşturur
-dotnet ef database update --startup-project CoachingSystem.API 
+# Yeni tablo ve enum’ları oluştur
+dotnet ef database update --startup-project CoachingSystem.API
+```
 
+---
 
-2.3 Projeyi Çalıştırma
+### 🔸 3. API’yi Başlatma
 
-API'yi başlatmak için:
-
+```bash
 dotnet run --project CoachingSystem.API
+```
+Uygulama başarıyla başlatıldığında:  
+👉 **http://localhost:5016/swagger**
 
+---
 
-Uygulama başladığında konsolda Now listening on: http://localhost:5016 gibi bir adres göreceksiniz.
+## 🔐 III. YETKİLENDİRME TESTİ
 
-🧪 3. API Testi ve Kullanım Kılavuzu
+Amaç: `Coach` rolü erişebilmeli, `Client` kısıtlanmalıdır.
 
-Tüm uç noktalarınızı Swagger UI üzerinden test etmeniz önerilir. Tarayıcınızda şu adresi açın:
+### 🧾 1. Kullanıcı Kayıtları (Register)
+**Uç Nokta:** `POST /api/Auth/register`
 
-http://localhost:5016/swagger
-
-3.1 Adım: Kullanıcı Kaydı (Register)
-
-Önce Coach ve Client rollerinde iki kullanıcı oluşturun.
-
-Uç Nokta: POST /api/Auth/register
-
-Roller: Coach (Koç) ve Client (Danışan) rolüyle iki farklı kullanıcı kaydedin.
-
-Örn. Coach JSON:
-
+#### Coach:
+```json
 {
-    "firstName": "Koç", 
-    "lastName": "Deneme", 
-    "email": "coach@test.com", 
-    "password": "12345678", 
-    "role": "Coach"
+  "firstName": "Koç",
+  "lastName": "Deneme",
+  "email": "coach@test.com",
+  "password": "12345678",
+  "role": "Coach"
 }
+```
 
+#### Client:
+```json
+{
+  "firstName": "Danışan",
+  "lastName": "Deneme",
+  "email": "client@test.com",
+  "password": "12345678",
+  "role": "Client"
+}
+```
 
-3.2 Adım: Giriş ve Token Alma
+---
 
-Yetkilendirme için JWT Token'ınızı alın.
+### 🔑 2. Giriş (Login)
+**Uç Nokta:** `POST /api/Auth/login`  
+Her kullanıcı için giriş yapın ve dönen JWT token’ı alın.
 
-Uç Nokta: POST /api/Auth/login
+Swagger UI’da **Authorize (🔒)** butonuna tıklayıp token’ı yapıştırın.
 
-Sonuç: Yanıtta gelen uzun token string'ini kopyalayın.
+---
 
-3.3 Adım: Yetkilendirme (Authorization)
+### 🧭 3. Rol Tabanlı Testler
 
-Kopyaladığınız token'ı API'ye tanıtın.
+| Uç Nokta | Metot | Token Rolü | Beklenen Kod | Sonuç |
+|-----------|--------|-------------|----------------|---------|
+| `/api/Sessions/all` | GET | Coach | 200 OK | ✅ Başarılı erişim |
+| `/api/Sessions/all` | GET | Client | 403 Forbidden | ❌ Yetkisiz erişim |
+| `/api/Sessions` | POST | Coach | 200 OK | ✅ Seans oluşturabilir |
+| `/api/Sessions` | POST | Client | 403 Forbidden | ❌ Yetkisi yok |
 
-Swagger UI'da sağ üstteki "Authorize" butonuna tıklayın.
+---
 
-Bearer şemasını seçin.
+## 🧱 IV. MİMARİ ÖZETİ
 
-Token'ı yapıştırın (Bearer öneki olmadan sadece string'i yapıştırın).
+| Katman | Görev | Örnek Dosyalar |
+|---------|--------|----------------|
+| **Domain** | Varlıklar, Rol Tanımları | `User.cs`, `UserRole.cs` |
+| **Application** | İş mantığı arayüzleri | `IUserRepository.cs`, `IUserService.cs` |
+| **Infrastructure** | Veri erişimi & EF Core işlemleri | `ApplicationDbContext.cs`, `UserRepository.cs` |
+| **API** | HTTP Controller’lar | `AuthController.cs`, `SessionsController.cs` |
 
-3.4 Adım: Rol Tabanlı Testler (Kısıtlamaları Kontrol Etme)
+---
 
-Bu testleri, 3.3 Adım'da yüklediğiniz token ile yapın.
+## 📦 V. TEKNİK BİLGİLER
 
-Uç Nokta
+- Framework: **.NET 8.0**  
+- Veritabanı: **PostgreSQL 16+**  
+- ORM: **Entity Framework Core**  
+- Kimlik Doğrulama: **JWT (Bearer Token)**  
+- Mimari: **Katmanlı (Domain, Application, Infrastructure, API)**  
+- Test Aracı: **Swagger UI / Postman**
 
-Metot
+---
 
-Token Rolü
-
-Beklenen Kod
-
-Kontrol Edilen Kural
-
-/api/Sessions/all
-
-GET
-
-Coach
-
-200 OK
-
-Coach'un listeleme yetkisi var.
-
-/api/Sessions/all
-
-GET
-
-Client
-
-403 Forbidden
-
-Client'ın yetkisi yok.
-
-/api/Sessions
-
-POST
-
-Coach
-
-200 OK
-
-Coach'un seans oluşturma yetkisi var.
-
-/api/Sessions
-
-POST
-
-Client
-
-403 Forbidden
-
-Client'ın oluşturma yetkisi yok.
-
-🤝 4. Proje Katmanları ve Mimarisi
-
-Proje, Sorumlulukların Ayrılması (Separation of Concerns) ilkesine uygun olarak dört temel katmana ayrılmıştır:
-
-Katman
-
-Sorumluluk
-
-Örnek Dosyalar
-
-CoachingSystem.API
-
-HTTP isteklerini yönetir, Controller'ları ve Program.cs yapılandırmasını içerir.
-
-AuthController.cs, Program.cs
-
-CoachingSystem.Application
-
-Uygulama iş mantığını (Servisler) ve Repository/Service arayüzlerini (IUserRepository) içerir.
-
-IUserRepository.cs
-
-CoachingSystem.Infrastructure
-
-Veri erişimini (ApplicationDbContext), Repository uygulamalarını (UserRepository) ve harici servisleri (JwtTokenService) içerir.
-
-ApplicationDbContext.cs, JwtTokenService.cs
-
-CoachingSystem.Domain
-
-Projenin temel varlıklarını (User.cs, Session.cs) ve sabitlerini (UserRole.cs) içerir.
-
-User.cs, UserRole.cs
+> ✨ **Hazırlayan:** Ömer Faruk Atik  
+> 🗂️ **Repository:** [CoachingSystem](https://github.com/Omerfarukatik/CoachingSystem)
