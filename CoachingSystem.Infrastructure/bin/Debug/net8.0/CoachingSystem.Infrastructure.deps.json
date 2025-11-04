@@ -718,12 +718,18 @@
           "CoachingSystem.Domain": "1.0.0"
         },
         "runtime": {
-          "CoachingSystem.Application.dll": {}
+          "CoachingSystem.Application.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "CoachingSystem.Domain/1.0.0": {
         "runtime": {
-          "CoachingSystem.Domain.dll": {}
+          "CoachingSystem.Domain.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

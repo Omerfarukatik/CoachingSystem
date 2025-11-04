@@ -10,3 +10,15 @@ C:\Users\faruk\CoachingSystem\CoachingSystem.Domain\obj\Debug\net8.0\refint\Coac
 C:\Users\faruk\CoachingSystem\CoachingSystem.Domain\obj\Debug\net8.0\CoachingSystem.Domain.pdb
 C:\Users\faruk\CoachingSystem\CoachingSystem.Domain\obj\Debug\net8.0\ref\CoachingSystem.Domain.dll
 C:\Users\faruk\CoachingSystem\CoachingSystem.Domain\obj\Debug\net8.0\CoachingSystem.Domain.sourcelink.json
+C:\Users\Melih\Desktop\DenemeCoach\CoachingSystem\CoachingSystem.Domain\bin\Debug\net8.0\CoachingSystem.Domain.deps.json
+C:\Users\Melih\Desktop\DenemeCoach\CoachingSystem\CoachingSystem.Domain\bin\Debug\net8.0\CoachingSystem.Domain.dll
+C:\Users\Melih\Desktop\DenemeCoach\CoachingSystem\CoachingSystem.Domain\bin\Debug\net8.0\CoachingSystem.Domain.pdb
+C:\Users\Melih\Desktop\DenemeCoach\CoachingSystem\CoachingSystem.Domain\obj\Debug\net8.0\CoachingSystem.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Melih\Desktop\DenemeCoach\CoachingSystem\CoachingSystem.Domain\obj\Debug\net8.0\CoachingSystem.Domain.AssemblyInfoInputs.cache
+C:\Users\Melih\Desktop\DenemeCoach\CoachingSystem\CoachingSystem.Domain\obj\Debug\net8.0\CoachingSystem.Domain.AssemblyInfo.cs
+C:\Users\Melih\Desktop\DenemeCoach\CoachingSystem\CoachingSystem.Domain\obj\Debug\net8.0\CoachingSystem.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Melih\Desktop\DenemeCoach\CoachingSystem\CoachingSystem.Domain\obj\Debug\net8.0\CoachingSystem.Domain.sourcelink.json
+C:\Users\Melih\Desktop\DenemeCoach\CoachingSystem\CoachingSystem.Domain\obj\Debug\net8.0\CoachingSystem.Domain.dll
+C:\Users\Melih\Desktop\DenemeCoach\CoachingSystem\CoachingSystem.Domain\obj\Debug\net8.0\refint\CoachingSystem.Domain.dll
+C:\Users\Melih\Desktop\DenemeCoach\CoachingSystem\CoachingSystem.Domain\obj\Debug\net8.0\CoachingSystem.Domain.pdb
+C:\Users\Melih\Desktop\DenemeCoach\CoachingSystem\CoachingSystem.Domain\obj\Debug\net8.0\ref\CoachingSystem.Domain.dll

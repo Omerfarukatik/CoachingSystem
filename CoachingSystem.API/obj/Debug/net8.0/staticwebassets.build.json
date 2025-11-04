@@ -1,11 +1,1 @@
-{
-  "Version": 1,
-  "Hash": "CVQSSsIVCw61LCJZCnv8nH9CqsN1ujlFGsD6vYFh0B4=",
-  "Source": "CoachingSystem.API",
-  "BasePath": "_content/CoachingSystem.API",
-  "Mode": "Default",
-  "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
-}
+{"Version":1,"Hash":"CpBNFz/8ybGIuFaHMAMDefg+tlhsu5K4g1k+Ngvahz4=","Source":"CoachingSystem.API","BasePath":"_content/CoachingSystem.API","Mode":"Default","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}

@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "8PO1EglHnJg=",
+  "dgSpecHash": "Z/bDPeb3J4M=",
   "success": true,
-  "projectFilePath": "C:\\Users\\faruk\\CoachingSystem\\CoachingSystem.Domain\\CoachingSystem.Domain.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Melih\\Desktop\\DenemeCoach\\CoachingSystem\\CoachingSystem.Domain\\CoachingSystem.Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Melih\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.21\\microsoft.netcore.app.ref.8.0.21.nupkg.sha512",
+    "C:\\Users\\Melih\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.21\\microsoft.windowsdesktop.app.ref.8.0.21.nupkg.sha512",
+    "C:\\Users\\Melih\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.21\\microsoft.aspnetcore.app.ref.8.0.21.nupkg.sha512"
+  ],
   "logs": []
 }
